@@ -7,7 +7,7 @@ import (
 	"mlgo/ml"
 )
 
-type simple_model_hparams struct{
+type simple_hparams struct{
 	n_input  int32;
 	n_output int32;
 }
