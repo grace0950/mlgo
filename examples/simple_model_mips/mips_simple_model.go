@@ -57,7 +57,7 @@ func SimpleModelLoad(model *simple_model) error {
 	if READ_FROM_BIDENDIAN {
 		bias_data := common.DecodeFloat32List(model_bytes[index : index+4])
 		index += 4
-		model.bias = ml.NewTensor0DWithData(nil, ml.TYPE_F32, bias_data[0])
+		model.bias = ml.NewTensor0DWithData(nil, ml.TYPE_F32, bias_data)
 	} else {
 		model.bias = ml.NewTensor0D(nil, ml.TYPE_F32)
 		model.bias.Data[0] = common.ReadFP32FromBytes(model_bytes, &index, READ_FROM_BIDENDIAN)

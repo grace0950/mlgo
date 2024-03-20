@@ -788,12 +788,12 @@ type InitParams struct {
 type Context struct {
 }
 
-// ggml_new_tensor_0d
+// ggml new tensor 0d
 func NewTensor0D(ctx *Context, dt DType) *Tensor {
   return NewTensor(ctx, dt, 0, 1, 1, 1, 1, nil)
 }
 
-func NewTensor0DWithData(ctx *Context, dt DType, data float32) *Tensor {
+func NewTensor0DWithData(ctx *Context, dt DType, data []float32) *Tensor {
   return NewTensor(ctx, dt, 0, 1, 1, 1, 1, data)
 }
 
