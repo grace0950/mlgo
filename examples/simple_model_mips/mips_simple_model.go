@@ -38,7 +38,7 @@ func SimpleModelLoad(model *simple_model) error {
 	}
 
 	// Reading model parameters (weight and bias)
-	n_dims := float32(common.ReadInt32FromBytes(model_bytes, &index, READ_FROM_BIDENDIAN))
+	n_dims := float32(common.ReadFP32FromBytes(model_bytes, &index, READ_FROM_BIDENDIAN))
 	model.hparams.n_input = n_dims
 	model.hparams.n_output = 1 // Since it's a linear regression model
 
