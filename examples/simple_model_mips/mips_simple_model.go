@@ -8,8 +8,8 @@ import (
 )
 
 type simple_hparams struct{
-	n_input  int32;
-	n_output int32;
+	n_input  float32;
+	n_output float32;
 }
 
 type simple_model struct {
