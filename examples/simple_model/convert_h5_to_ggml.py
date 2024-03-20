@@ -52,7 +52,7 @@ fout.write(struct.pack(pack_fmt, 0x67676D6C))  # magic: ggml in hex
 
 
 for name in list_vars.keys():
-    data = list_vars[name].squeeze().numpy()
+    data = list_vars[name].numpy()
     print("Processing variable: " + name + " with shape: ", data.shape)
     n_dims = len(data.shape)
 
