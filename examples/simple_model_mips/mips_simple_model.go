@@ -67,13 +67,13 @@ func SimpleModelLoad(model *simple_model) error {
 }
 
 
-func SimpleModelEval(model *simple_model, input float32) float32 {
+func SimpleModelEval(model *simple_model, input []float32) float32 {
 	fmt.Println("start SimpleModelEval")
 	ctx0 := &ml.Context{}
 	graph := ml.Graph{ThreadsCount: 1}
 
 	inputTensor := ml.NewTensor0D(ctx0, ml.TYPE_F32)
-	inputTensor.Data[0] = input
+	inputTensor.Data = input
 
 	// Linear regression computation: y = wx + b
 	output := ml.Add(ctx0, ml.Mul(ctx0, model.weight, inputTensor), model.bias)
@@ -92,7 +92,7 @@ func SimpleStoreInMemory(output float32) {
 
 func SimpleLinearRegression() {
 	fmt.Println("Start Simple Linear Regression")
-	input := float32(1.0) // Example input
+	input := []float32{1.0} // Example input
 	model := new(simple_model)
 	err := SimpleModelLoad(model)
 	if err != nil {
