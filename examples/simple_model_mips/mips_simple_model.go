@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"mlgo/common"
 	"mlgo/ml"
 )
@@ -39,6 +40,7 @@ func SimpleModelLoad(model *simple_model) error {
 
 	// Reading model parameters (weight and bias)
 	n_dims := int32(common.ReadInt32FromBytes(model_bytes, &index, READ_FROM_BIDENDIAN))
+	log.Println("n_dims: ", n_dims, "index: ", index)
 	model.hparams.n_input = n_dims
 	model.hparams.n_output = 1 // Since it's a linear regression model
 
